@@ -4,7 +4,7 @@ import Timer from "./Timer";
 import Score from "./Score";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-const GameBoard = ({ language }) => {
+const GameBoard = ({ language="en" }) => {
   const [letters, setLetters] = useState([]);
   const [dictionary, setDictionary] = useState([]);
   const [score, setScore] = useState(0);
