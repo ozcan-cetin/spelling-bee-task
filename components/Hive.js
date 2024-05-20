@@ -5,7 +5,7 @@ const Hive = ({ letters, onSubmit, language }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(input);
+    onSubmit(input.toLowerCase());
     setInput('');
   };
 
