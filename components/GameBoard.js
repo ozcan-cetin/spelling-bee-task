@@ -10,19 +10,9 @@ const GameBoard = ({ language }) => {
   const [score, setScore] = useState(0);
   const [time, setTime] = useState(60);
 
-//   useEffect(() => {
-//     fetch("/dictionaries/tr.json")
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setDictionary(data.words);
-//         setLetters(generateRandomLetters(data.words));
-//       });
-//   }, [score]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch("/api/dictionaries");
         const response = await fetch(`/api/dictionaries?lang=${language}`);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -61,13 +51,6 @@ const GameBoard = ({ language }) => {
     <Hive letters={letters} onSubmit={handleWordSubmission} language={language} />
     <Score score={score} language={language} />
   </div>
-    // <div className="text-center bg-red-100">
-    //   <LanguageSwitcher />
-    //   <h1>{language === "en" ? "Spelling Bee Game" : "Heceleme Oyunu"}</h1>
-    //   <Timer time={time} setTime={setTime} language={language}/>
-    //   <Hive letters={letters} onSubmit={handleWordSubmission} language={language} />
-    //   <Score score={score} language={language}/>
-    // </div>
   );
 };
 
